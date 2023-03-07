@@ -10,17 +10,19 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = Article.find(params[:id])
   end
 
   def show
-  end
-
-  def update
+    @article = Article.find(params[:id])
   end
 
   def update
   end
 
   def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to articles_path, status: :see_other
   end
 end
